@@ -3,141 +3,258 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shruti Naidu — Data Analyst portfolio. Data analysis, Power BI, Excel, SQL, Python and open-source experience.">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="Shruti Naidu's portfolio — data analysis, Power BI, Excel, SQL, Python and open-source experience in a panda-and-flower garden.">
   <title>Shruti Naidu | Data Analyst</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Phudu:wght@500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="petal-field" aria-hidden="true">
-    <span>🌸</span><span>🌼</span><span>🌷</span><span>🌸</span><span>🌼</span><span>🌷</span><span>🌸</span>
+<body class="preloader-open">
+  <canvas class="garden-canvas" id="garden-canvas" aria-hidden="true"></canvas>
+  <div class="panda-greeting" id="panda-greeting" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div class="preloader" id="preloader" role="dialog" aria-modal="true" aria-labelledby="preloader-title">
+    <div class="preloader-sky" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span></div>
+    <div class="preloader-scene" id="preloader-scene">
+      <div class="preloader-fallback-panda" data-panda-greet aria-hidden="true">🐼</div>
+      <span class="preloader-kiss" aria-hidden="true">💗</span>
+      <span class="preloader-sparkle sparkle-one" aria-hidden="true">✦</span>
+      <span class="preloader-sparkle sparkle-two" aria-hidden="true">✧</span>
+      <span class="preloader-sparkle sparkle-three" aria-hidden="true">✿</span>
+    </div>
+    <div class="preloader-copy">
+      <span class="preloader-kicker">A LITTLE GARDEN IS GROWING</span>
+      <h1 id="preloader-title">A kiss from <span>Shruti's panda</span></h1>
+      <p>A panda is making its way through the flower garden to say hello...</p>
+      <div class="preloader-progress" aria-hidden="true"><span></span></div>
+      <button class="enter-garden" id="enter-garden" type="button">Enter the garden <i class="ri-arrow-right-line"></i></button>
+    </div>
   </div>
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <noscript><style>.preloader { display: none !important; } .preloader-open #main, .preloader-open #navbar, .preloader-open .site-footer, .preloader-open .skip-link { visibility: visible !important; } .preloader-open { overflow: auto !important; }</style></noscript>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
-  <header class="navbar" id="navbar">
-    <div class="nav-wrap">
-      <a href="#home" class="brand"><span class="brand-panda">🐼</span><span>SHRUTI NAIDU</span></a>
-      <nav id="nav-menu">
-        <a class="nav-link active" href="#home"><i class="ri-home-5-line"></i> Home</a>
-        <a class="nav-link" href="#about"><i class="ri-user-smile-line"></i> Profile</a>
-        <a class="nav-link" href="#experience"><i class="ri-seedling-line"></i> Journey</a>
-        <a class="nav-link" href="#skills"><i class="ri-bar-chart-box-line"></i> Skills</a>
-        <a class="nav-link" href="#certifications"><i class="ri-award-line"></i> Certificates</a>
-        <a class="nav-link" href="#education"><i class="ri-book-open-line"></i> Education</a>
-        <a class="nav-link" href="#contact"><i class="ri-mail-line"></i> Contact</a>
+  <header class="world-nav" id="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Shruti Naidu home">
+        <span class="brand-mark" aria-hidden="true" data-panda-greet>🐼</span>
+        <span class="brand-name">SHRUTI NAIDU</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <a class="nav-link active" href="#home"><span class="nav-key">01</span>Home</a>
+        <a class="nav-link" href="#about"><span class="nav-key">02</span>Profile</a>
+        <a class="nav-link" href="#experience"><span class="nav-key">03</span>Journey</a>
+        <a class="nav-link" href="#skills"><span class="nav-key">04</span>Skills</a>
+        <a class="nav-link" href="#certifications"><span class="nav-key">05</span>Credentials</a>
+        <a class="nav-link" href="#education"><span class="nav-key">06</span>Education</a>
+        <a class="nav-link" href="#contact"><span class="nav-key">07</span>Contact</a>
       </nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation"><i class="ri-menu-4-line"></i></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="hero" id="home">
-      <div class="bamboo bamboo-left">🎋</div><div class="bamboo bamboo-right">🎋</div>
-      <div class="container hero-grid">
+      <div class="hero-bloom hero-bloom-one" aria-hidden="true">✿</div>
+      <div class="hero-bloom hero-bloom-two" aria-hidden="true">❀</div>
+      <div class="hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow"><span>🌸</span> DATA ANALYST · DATA SCIENCE</div>
-          <h1>Hi, I'm <span>Shruti<br>Naidu</span><em>🐼</em></h1>
-          <div class="typing-line"><span>Currently growing as a </span><strong id="typing-text"></strong></div>
-          <p>Turning data into clear insights, useful dashboards, and better decisions — while continuously learning through practical work and open-source collaboration.</p>
+          <div class="eyebrow"><span class="status-dot"></span> DATA ANALYSIS <i></i> DATA SCIENCE</div>
+          <h1>SHRUTI<br><span>NAIDU</span></h1>
+          <div class="role-line"><span class="role-label">GROWING AS</span><strong id="typing-text"></strong><span class="typing-caret" aria-hidden="true"></span></div>
+          <p class="hero-intro">Turning data into clear insights, thoughtful dashboards, and better decisions — one curious question at a time.</p>
           <div class="hero-actions">
-            <a href="#about" class="btn btn-primary">Explore Profile <i class="ri-arrow-down-line"></i></a>
-            <a href="https://www.linkedin.com/in/shrutinaidu05" target="_blank" rel="noopener" class="btn btn-soft">LinkedIn <i class="ri-linkedin-line"></i></a>
+            <a class="game-button button-flower" href="#about"><span>EXPLORE PROFILE</span><i class="ri-arrow-down-line"></i></a>
+            <a class="game-button button-ghost" href="#experience"><span>VIEW JOURNEY</span><i class="ri-arrow-right-line"></i></a>
           </div>
-          <div class="mini-note"><span class="leaf">☘</span> Pune Division, Maharashtra, India</div>
+          <div class="hero-location"><span>✿</span> PUNE DIVISION, MAHARASHTRA, INDIA</div>
         </div>
 
-        <div class="panda-card reveal">
-          <div class="flower flower-a">🌸</div><div class="flower flower-b">🌼</div><div class="flower flower-c">🌷</div>
-          <div class="card-top"><span>SHRUTI'S GARDEN</span><span class="online"><i></i> OPEN TO LEARNING</span></div>
-          <div class="panda-stage"><div class="bamboo-stick">🎋</div><div class="panda">🐼</div><div class="flower-ring">🌸 🌼 🌸</div></div>
-          <div class="card-bottom">
-            <div><small>ROLE</small><strong>Data Analyst</strong></div>
-            <div><small>FOCUS</small><strong>Data & BI</strong></div>
-            <div><small>BASE</small><strong>India</strong></div>
+        <aside class="player-card reveal" aria-label="Shruti's profile snapshot">
+          <div class="card-topline"><span>GARDEN JOURNAL</span><span class="online-label"><i></i> OPEN TO LEARNING</span></div>
+          <div class="panda-scene">
+            <div class="scene-sun"></div>
+            <span class="scene-flower flower-left" aria-hidden="true">🌼</span>
+            <span class="scene-flower flower-right" aria-hidden="true">🌸</span>
+            <span class="scene-bamboo" aria-hidden="true">🎋</span>
+            <div class="panda-avatar" data-panda-greet role="button" tabindex="0" aria-label="Wave and greet the panda">🐼</div>
+            <div class="scene-caption">A LITTLE DATA, A LOT OF HEART</div>
           </div>
-        </div>
+          <div class="player-stats">
+            <div class="stat-row"><span>ROLE</span><strong>Data Analyst</strong></div>
+            <div class="stat-row"><span>FOCUS</span><strong>Data &amp; BI</strong></div>
+            <div class="stat-row"><span>HOME BIOME</span><strong>Pune, India</strong></div>
+          </div>
+          <div class="card-bottomline"><span>🌱 ALWAYS GROWING</span><span>PROFILE 001</span></div>
+        </aside>
       </div>
-      <div class="hero-divider"><span>✿</span><span>✿</span><span>✿</span></div>
+      <div class="hero-ground" aria-hidden="true"><span>✿</span><span>❀</span><span>✿</span><span>❁</span><span>✿</span></div>
     </section>
 
-    <section class="section paper" id="about">
-      <div class="container">
-        <div class="section-heading reveal"><span>🌿 CHARACTER NOTES</span><h2>A little about Shruti</h2><p>A simple snapshot of her current professional journey, using the information supplied in her profile.</p></div>
-        <div class="about-grid">
-          <article class="note-card reveal">
-            <div class="note-head"><span>📜 PROFILE NOTE</span><span>🐼</span></div>
-            <h3>Learning, analysing & growing</h3>
-            <p>Shruti Naidu is a Data Analyst at Code Social and a Data Science and Machine Learning Intern at Globe Creater Services, Pune.</p>
-            <p>Her current learning focus includes Python for data analysis, SQL for database work, advanced Excel, Power BI, data cleaning, exploratory data analysis (EDA), and reporting.</p>
-            <p>She also participates in open-source communities, building experience with Git and GitHub workflows, collaboration, documentation, bug fixes, feature development, and code reviews.</p>
+    <section class="section about-section" id="about">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-kicker"><i class="ri-user-smile-line"></i> CHARACTER DETAILS</div>
+          <h2>A GARDEN OF <span>GROWTH</span></h2>
+          <p>A snapshot of Shruti's current professional journey and the skills she's building along the way.</p>
+        </div>
+        <div class="about-layout">
+          <article class="profile-panel reveal">
+            <div class="panel-label"><span>PROFILE NOTE</span><span aria-hidden="true">🌸</span></div>
+            <h3>Learning, analysing<br> &amp; growing.</h3>
+            <p>Shruti Naidu is a Data Analyst at Code Social and a Data Science and Machine Learning Intern at Globe Creater Services in Pune.</p>
+            <p>Her current learning focus includes Python, SQL, advanced Excel, Power BI, data cleaning, exploratory data analysis, and reporting.</p>
+            <p>She also contributes to open-source communities, gaining experience with GitHub collaboration, documentation, bug fixes, feature development, and code reviews.</p>
+            <div class="panel-stamp" aria-hidden="true">GROW<br>WITH<br>CARE</div>
           </article>
-          <div class="stat-grid reveal">
-            <div class="stat-card"><span>🌸</span><strong>2</strong><small>Current / recent professional roles</small></div>
-            <div class="stat-card"><span>🌼</span><strong>4</strong><small>Certifications & job simulation listed</small></div>
-            <div class="stat-card"><span>🎋</span><strong>2</strong><small>Open-source programs listed</small></div>
-            <div class="stat-card"><span>🐼</span><strong>BSc</strong><small>Data Science · SPPU</small></div>
+          <div class="stats-grid reveal" aria-label="Portfolio highlights">
+            <article class="stat-tile"><span class="tile-icon">🌼</span><strong>2</strong><small>Professional roles</small></article>
+            <article class="stat-tile"><span class="tile-icon">🌸</span><strong>3</strong><small>Listed credentials</small></article>
+            <article class="stat-tile"><span class="tile-icon">🎋</span><strong>2</strong><small>Open-source programs</small></article>
+            <article class="stat-tile"><span class="tile-icon">📚</span><strong>BSc</strong><small>Data Science · SPPU</small></article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section green-section" id="experience">
-      <div class="container">
-        <div class="section-heading light reveal"><span>🌱 GROWTH JOURNEY</span><h2>Experience</h2><p>Every role is another little patch of the garden.</p></div>
-        <div class="timeline">
-          <article class="timeline-card reveal"><div class="timeline-icon">🌸</div><div><div class="role-top"><span>September 2026 – Present</span><b>Internship</b></div><h3>Data Science and Machine Learning Intern</h3><h4>Globe Creater Services, Pune</h4><ul><li>Learning Python for data analysis, data manipulation, and problem-solving.</li><li>Developing SQL skills for database management, querying, and data extraction.</li><li>Building advanced Microsoft Excel skills, including Pivot Tables, VLOOKUP, XLOOKUP, and dashboard creation.</li><li>Learning Power BI for data visualization, interactive dashboards, and business intelligence.</li><li>Gaining practical knowledge of data cleaning, EDA, and reporting through hands-on training.</li></ul><div class="tags"><span>Python</span><span>SQL</span><span>Excel</span><span>Power BI</span><span>EDA</span></div></div></article>
-          <article class="timeline-card reveal"><div class="timeline-icon">🌼</div><div><div class="role-top"><span>August 2026 – Present</span><b>Data Analyst</b></div><h3>Data Analyst</h3><h4>Code Social · India</h4><ul><li>Collect, organize, and analyze data related to community events, programs, and initiatives.</li><li>Create reports, dashboards, and visualizations to present meaningful insights.</li><li>Track community engagement, participation, and performance metrics.</li><li>Identify trends and patterns to support data-driven decision-making.</li><li>Collaborate with team members to improve data management, reporting, and analytical processes.</li></ul><div class="tags"><span>Data Analysis</span><span>Dashboards</span><span>Visualization</span><span>Reporting</span></div></div></article>
-          <article class="timeline-card reveal"><div class="timeline-icon">🎋</div><div><div class="role-top"><span>June 2026 – August 2026</span><b>Open Source</b></div><h3>Open Source Contributor</h3><h4>Elite Coders · India</h4><ul><li>Selected as a Contributor for Elite Coders Summer of Code 2026.</li><li>Contributed to real-world open-source projects on GitHub.</li><li>Collaborated with mentors and developers in a remote, community-driven environment.</li><li>Worked on bug fixes, feature development, documentation, and code reviews.</li><li>Followed Git and GitHub workflows including branching, pull requests, and issue tracking.</li></ul><div class="tags"><span>Git</span><span>GitHub</span><span>Collaboration</span><span>Open Source</span></div></div></article>
-          <article class="timeline-card reveal"><div class="timeline-icon">🌷</div><div><div class="role-top"><span>May 2026 – July 2026</span><b>Open Source</b></div><h3>Open Source Contributor</h3><h4>GirlScript Summer of Code</h4><p>Chosen as an Open Source Contributor for GirlScript Summer of Code (GSSoC) 2026. Passionate about contributing to meaningful projects, learning from experienced mentors, and collaborating with developers from the community.</p></div></article>
+    <section class="section journey-section" id="experience">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-kicker"><i class="ri-seedling-line"></i> PROGRESSION PATH</div>
+          <h2>THE GROWTH <span>JOURNEY</span></h2>
+          <p>Every role is another patch in the garden. Here's where the path has led so far.</p>
+        </div>
+        <div class="journey-track">
+          <article class="journey-card reveal">
+            <div class="journey-marker"><span>🌱</span><i>01</i></div>
+            <div class="journey-content">
+              <div class="journey-meta"><span>SEPTEMBER 2026 – PRESENT</span><b>INTERNSHIP</b></div>
+              <h3>Data Science and Machine Learning Intern</h3>
+              <h4>Globe Creater Services · Pune</h4>
+              <ul>
+                <li>Learning Python for data analysis, data manipulation, and problem-solving.</li>
+                <li>Developing SQL skills for database querying and data extraction.</li>
+                <li>Practising Excel dashboards, Power BI visualisation, data cleaning, EDA, and reporting.</li>
+              </ul>
+              <div class="tag-list"><span>Python</span><span>SQL</span><span>Excel</span><span>Power BI</span><span>EDA</span></div>
+            </div>
+          </article>
+          <article class="journey-card reveal">
+            <div class="journey-marker"><span>🌸</span><i>02</i></div>
+            <div class="journey-content">
+              <div class="journey-meta"><span>AUGUST 2026 – PRESENT</span><b>DATA ANALYST</b></div>
+              <h3>Data Analyst</h3>
+              <h4>Code Social · India</h4>
+              <ul>
+                <li>Analysing data related to community events, programmes, and initiatives.</li>
+                <li>Creating reports and visualisations to share useful insights and track engagement.</li>
+                <li>Collaborating to improve reporting and data-driven decision-making.</li>
+              </ul>
+              <div class="tag-list"><span>Data Analysis</span><span>Dashboards</span><span>Visualisation</span><span>Reporting</span></div>
+            </div>
+          </article>
+          <article class="journey-card reveal">
+            <div class="journey-marker"><span>🎋</span><i>03</i></div>
+            <div class="journey-content">
+              <div class="journey-meta"><span>JUNE 2026 – AUGUST 2026</span><b>OPEN SOURCE</b></div>
+              <h3>Open Source Contributor</h3>
+              <h4>Elite Coders · Summer of Code 2026</h4>
+              <p>Contributed to real-world projects, collaborating with mentors and developers on bug fixes, features, documentation, code reviews, and GitHub workflows.</p>
+              <div class="tag-list"><span>Git</span><span>GitHub</span><span>Collaboration</span><span>Open Source</span></div>
+            </div>
+          </article>
+          <article class="journey-card reveal">
+            <div class="journey-marker"><span>🌷</span><i>04</i></div>
+            <div class="journey-content">
+              <div class="journey-meta"><span>MAY 2026 – JULY 2026</span><b>OPEN SOURCE</b></div>
+              <h3>Open Source Contributor</h3>
+              <h4>GirlScript Summer of Code 2026</h4>
+              <p>Selected to contribute to community projects, learn from experienced mentors, and collaborate with developers.</p>
+              <div class="tag-list"><span>Open Source</span><span>Community</span><span>Learning</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section paper" id="skills">
-      <div class="container">
-        <div class="section-heading reveal"><span>🍃 TOOLKIT</span><h2>Skills & learning focus</h2><p>The profile explicitly highlights these skills and learning areas.</p></div>
-        <div class="skills-grid">
-          <div class="skill-panel reveal"><div class="panel-title"><span>🐼</span> DATA & ANALYTICS</div><div class="skill"><div><span>Microsoft Power BI</span><b>Primary</b></div><div class="bar"><i style="width:92%"></i></div></div><div class="skill"><div><span>Data Analysis</span><b>Core</b></div><div class="bar"><i style="width:88%"></i></div></div><div class="skill"><div><span>Data Entry</span><b>Core</b></div><div class="bar"><i style="width:80%"></i></div></div><div class="skill"><div><span>Microsoft Excel</span><b>Advanced learning</b></div><div class="bar"><i style="width:86%"></i></div></div></div>
-          <div class="skill-panel reveal"><div class="panel-title"><span>🌸</span> TECHNICAL LEARNING</div><div class="pill-cloud"><span>Python</span><span>SQL</span><span>Power BI</span><span>Excel</span><span>Pivot Tables</span><span>VLOOKUP</span><span>XLOOKUP</span><span>Data Cleaning</span><span>EDA</span><span>Reporting</span><span>Git</span><span>GitHub</span></div><div class="skill-note">Learning through hands-on training, practical reporting, dashboards, and open-source collaboration.</div></div>
+    <section class="section skills-section" id="skills">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-kicker"><i class="ri-briefcase-3-line"></i> SKILL INVENTORY</div>
+          <h2>TOOLS IN THE <span>GARDEN</span></h2>
+          <p>Skills and learning areas highlighted in Shruti's profile.</p>
+        </div>
+        <div class="inventory-grid">
+          <article class="inventory-panel reveal">
+            <div class="inventory-heading"><span class="inventory-icon">📊</span><div><small>INVENTORY SLOT 01</small><h3>DATA &amp; ANALYTICS</h3></div></div>
+            <div class="skill-meter"><div><span>Power BI</span><b>PRIMARY</b></div><i><span style="width: 88%"></span></i></div>
+            <div class="skill-meter"><div><span>Data Analysis</span><b>CORE</b></div><i><span style="width: 82%"></span></i></div>
+            <div class="skill-meter"><div><span>Microsoft Excel</span><b>BUILDING</b></div><i><span style="width: 76%"></span></i></div>
+            <div class="skill-meter"><div><span>Data Entry</span><b>CORE</b></div><i><span style="width: 72%"></span></i></div>
+          </article>
+          <article class="inventory-panel reveal">
+            <div class="inventory-heading"><span class="inventory-icon" data-panda-greet role="button" tabindex="0" aria-label="Wave and greet the panda">🐼</span><div><small>INVENTORY SLOT 02</small><h3>TECHNICAL TOOLKIT</h3></div></div>
+            <div class="tool-slots">
+              <span>Python</span><span>SQL</span><span>Power BI</span><span>Excel</span>
+              <span>Pivot Tables</span><span>VLOOKUP</span><span>XLOOKUP</span><span>Data Cleaning</span>
+              <span>EDA</span><span>Reporting</span><span>Git</span><span>GitHub</span>
+            </div>
+            <p class="inventory-note">Learning through hands-on training, dashboards, reporting, and open-source collaboration.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section cream-section" id="certifications">
-      <div class="container">
-        <div class="section-heading reveal"><span>🌼 BLOOMING CREDENTIALS</span><h2>Certifications</h2><p>Credentials listed in the supplied LinkedIn profile.</p></div>
-        <div class="certificate-grid">
-          <article class="certificate reveal"><span>☁️</span><div><small>ORACLE</small><h3>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3></div></article>
-          <article class="certificate reveal"><span>📊</span><div><small>LEARNING</small><h3>Excel for Beginners</h3></div></article>
-          <article class="certificate reveal"><span>📈</span><div><small>DELOITTE AUSTRALIA</small><h3>Data Analytics Job Simulation</h3></div></article>
+    <section class="section credentials-section" id="certifications">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-kicker"><i class="ri-award-line"></i> BLOOMING CREDENTIALS</div>
+          <h2>ACHIEVEMENTS &amp; <span>CERTIFICATES</span></h2>
+          <p>Credentials and learning milestones listed in the supplied profile.</p>
+        </div>
+        <div class="credential-grid">
+          <article class="credential-card reveal"><div class="credential-seal">☁</div><div class="credential-body"><small>ORACLE</small><h3>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3><span class="credential-ribbon">CERTIFIED</span></div></article>
+          <article class="credential-card reveal"><div class="credential-seal">📈</div><div class="credential-body"><small>DELOITTE AUSTRALIA</small><h3>Data Analytics Job Simulation</h3><span class="credential-ribbon">JOB SIMULATION</span></div></article>
+          <article class="credential-card reveal"><div class="credential-seal">📊</div><div class="credential-body"><small>LEARNING</small><h3>Excel for Beginners</h3><span class="credential-ribbon">COURSE</span></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section paper" id="education">
-      <div class="container">
-        <div class="section-heading reveal"><span>🌿 ROOTS</span><h2>Education</h2><p>The academic details visible in the supplied profile.</p></div>
-        <div class="education-list">
-          <article class="education-item reveal"><div class="edu-icon">🎓</div><div><small>2024</small><h3>Savitribai Phule Pune University</h3><p>BSc Data Science</p></div></article>
-          <article class="education-item reveal"><div class="edu-icon">📚</div><div><small>March 2024</small><h3>Vidya Bhavan School & Jr College</h3></div></article>
-          <article class="education-item reveal"><div class="edu-icon">🌸</div><div><small>March 2022</small><h3>St Joseph's Convent High School</h3></div></article>
+    <section class="section education-section" id="education">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-kicker"><i class="ri-book-open-line"></i> ROOTS &amp; FOUNDATIONS</div>
+          <h2>WHERE IT <span>BEGAN</span></h2>
+          <p>The academic path behind Shruti's data science journey.</p>
+        </div>
+        <div class="education-path">
+          <article class="education-card reveal"><div class="edu-icon">🎓</div><div><small>2024</small><h3>Savitribai Phule Pune University</h3><p>BSc Data Science</p></div><span class="edu-leaf">✿</span></article>
+          <article class="education-card reveal"><div class="edu-icon">📚</div><div><small>MARCH 2024</small><h3>Vidya Bhavan School &amp; Jr College</h3></div><span class="edu-leaf">❀</span></article>
+          <article class="education-card reveal"><div class="edu-icon">🌷</div><div><small>MARCH 2022</small><h3>St Joseph's Convent High School</h3></div><span class="edu-leaf">✿</span></article>
         </div>
       </div>
     </section>
 
     <section class="contact-section" id="contact">
-      <div class="container contact-card reveal">
-        <div class="contact-panda">🐼</div>
-        <div><span class="eyebrow">🌷 LET'S CONNECT</span><h2>Want to talk data?</h2><p>For opportunities, collaboration, or a conversation about data analysis and learning.</p></div>
-        <div class="contact-actions"><a class="btn btn-primary" href="mailto:shrutinaidu2004@gmail.com">Email Shruti <i class="ri-mail-send-line"></i></a><a class="btn btn-soft" href="https://www.linkedin.com/in/shrutinaidu05" target="_blank" rel="noopener">View LinkedIn <i class="ri-linkedin-line"></i></a></div>
+      <div class="contact-panel reveal">
+        <div class="contact-panda" data-panda-greet role="button" tabindex="0" aria-label="Wave and greet the panda">🐼</div>
+        <div class="contact-copy"><div class="section-kicker"><i class="ri-chat-heart-line"></i> SEND A GARDEN NOTE</div><h2>LET'S TALK <span>DATA</span></h2><p>For opportunities, collaboration, or a conversation about data analysis and learning.</p></div>
+        <div class="contact-actions">
+          <a class="game-button button-flower" href="mailto:shrutinaidu2004@gmail.com"><span>EMAIL SHRUTI</span><i class="ri-mail-send-line"></i></a>
+          <a class="game-button button-ghost" href="https://www.linkedin.com/in/shrutinaidu05" target="_blank" rel="noopener noreferrer"><span>LINKEDIN</span><i class="ri-arrow-right-up-line"></i></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer><span>Made with 🐼 + 🌸 for Shruti Naidu</span><span>Data Analyst · Pune Division, Maharashtra, India</span></footer>
+  <footer class="site-footer"><span>MADE WITH <b data-panda-greet role="button" tabindex="0" aria-label="Wave and greet the panda">🐼</b> + <b>🌸</b> FOR SHRUTI NAIDU</span><span>DATA ANALYST · PUNE, INDIA</span></footer>
   <script src="script.js"></script>
+  <script type="module" src="garden-3d.js"></script>
 </body>
 </html>

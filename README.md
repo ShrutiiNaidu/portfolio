@@ -1,6 +1,6 @@
-# Shruti Naidu — Panda & Flowers Portfolio
+# Shruti Naidu — Panda Garden Portfolio
 
-A responsive, single-page portfolio for Shruti Naidu with a soft panda, flowers and bamboo garden theme. The design is intentionally warm and editorial rather than neon or overly futuristic.
+A responsive portfolio for Shruti Naidu with a white-and-pink panda garden, inspired by the immersive layout of the reference portfolio. The root folder contains the deployable Shruti site.
 
 ## Run locally
 
@@ -15,34 +15,20 @@ python -m http.server 5500
 
 Open `http://localhost:5500`.
 
-## Mobile support
+## Features
 
-The portfolio is optimized for phone screens, including:
-- responsive typography and spacing
-- touch-friendly navigation and buttons
-- mobile hamburger menu
-- stacked experience, certification and education cards
-- no horizontal page overflow
-- reduced-motion support
-- safe layouts for narrow screens (including 360–380px widths)
+- Responsive navigation and section layouts
+- One shared, fixed 3D garden behind every section, with a path, grass, flowers, bamboo, rocks, and pandas
+- A procedural panda walk-up, greeting, and kiss sequence, plus falling petals and scroll reveals
+- Clicking any garden panda or panda icon makes a panda turn toward you, wave, and say "hi!"
+- Reduced-motion support and keyboard-accessible navigation
+- Static files with no build step; Three.js loads from a CDN with an emoji fallback
 
-## Publish it publicly
+The garden camera eases along the same 3D path as the page scrolls. Rendering targets 60 fps on larger screens and 45 fps with lighter graphics on compact/touch devices; reduced-motion preferences remain respected. Panda models and fur textures are generated procedurally; no external rigged panda model or animation asset is bundled, so the scene is stylized rather than photorealistic.
 
-### Netlify — easiest
-1. Go to Netlify and choose **Add new site → Deploy manually**.
-2. Drag the entire `ShrutiPortfolio` folder into the upload area.
-3. Netlify will immediately provide a public `*.netlify.app` URL.
-4. Optional: change the site name in **Site configuration → Domain management**.
+## Publish it
 
-The included `netlify.toml` is ready for deployment.
-
-### Vercel
-1. Import this folder/repository into Vercel.
-2. Framework preset: **Other** (static site).
-3. Build command: leave empty.
-4. Output directory: `.`
-
-The included `vercel.json` is ready for deployment.
+Deploy the repository root as a static site. The included `CNAME` configures the custom domain for GitHub Pages.
 
 ## Customize
 
